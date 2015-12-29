@@ -10,4 +10,7 @@
 
 @interface OPGameView : UIView
 
+- (instancetype)init;
+- (void)drawValue:(NSString *)value atX:(int)x Y:(int)y;
+
 @end

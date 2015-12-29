@@ -8,6 +8,8 @@
 
 #import "OPMenuViewController.h"
 
+#import "OPGameViewController.h"
+
 @interface OPMenuViewController ()
 
 @end
@@ -22,6 +24,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)playPressed:(id)sender {
+    OPGameViewController *gameViewController = [[OPGameViewController alloc] initWithNibName:@"OPGameViewController" bundle:[NSBundle mainBundle]];
+    [self.navigationController pushViewController:gameViewController animated:YES];
 }
 
 @end

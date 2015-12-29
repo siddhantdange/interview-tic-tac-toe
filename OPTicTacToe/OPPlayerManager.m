@@ -10,7 +10,6 @@
 
 @interface OPPlayerManager ()
 
-@property (nonatomic, assign) OPGamePlayer currentPlayer;
 
 @end
 

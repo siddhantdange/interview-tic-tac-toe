@@ -8,7 +8,15 @@
 
 #import "OPGameViewController.h"
 
+#import "OPGame.h"
+#import "OPGameView.h"
+#import "OPPlayerManager.h"
+
 @interface OPGameViewController ()
+
+@property (nonatomic, strong) OPGameView *gameView;
+@property (nonatomic, strong) OPPlayerManager *playerManager;
+@property (nonatomic, strong) OPGame *game;
 
 @end
 
@@ -16,22 +24,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.game = [[OPGame alloc] init];
+    self.playerManager = [[OPPlayerManager alloc] init];
+    [self.view addSubview:self.gameView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
+#pragma mark - Getters and Setters
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (OPGameView *)gameView {
+    if (!_gameView) {
+        _gameView = [[OPGameView alloc] init];
+        CGRect gameFrame = _gameView.frame;
+        float midX = ([UIScreen mainScreen].bounds.size.width - gameFrame.size.width)/2.0f;
+        gameFrame.origin = CGPointMake(midX, 100.0f);
+        _gameView.frame = gameFrame;
+    }
+    
+    return _gameView;
 }
-*/
 
 @end
