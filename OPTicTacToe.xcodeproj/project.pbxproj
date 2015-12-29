@@ -1,0 +1,566 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		25B053BF1C3116850074FC11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B053BE1C3116850074FC11 /* main.m */; };
+		25B053C21C3116850074FC11 /* OPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B053C11C3116850074FC11 /* OPAppDelegate.m */; };
+		25B053C51C3116850074FC11 /* OPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B053C41C3116850074FC11 /* OPMenuViewController.m */; };
+		25B053CA1C3116850074FC11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25B053C91C3116850074FC11 /* Assets.xcassets */; };
+		25B053D81C3116860074FC11 /* OPTicTacToeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B053D71C3116860074FC11 /* OPTicTacToeTests.m */; };
+		25B053E31C3116860074FC11 /* OPTicTacToeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B053E21C3116860074FC11 /* OPTicTacToeUITests.m */; };
+		25B053F31C3119DF0074FC11 /* OPMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25B053F21C3119DF0074FC11 /* OPMenuViewController.xib */; };
+		25CEEDFB1C31C1F100D5DF68 /* OPGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CEEDFA1C31C1F100D5DF68 /* OPGameViewController.m */; };
+		25CEEDFD1C31C20400D5DF68 /* OPGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25CEEDFC1C31C20400D5DF68 /* OPGameViewController.xib */; };
+		25CEEE011C31C2A700D5DF68 /* OPGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CEEE001C31C2A700D5DF68 /* OPGame.m */; };
+		25CEEE041C3263D800D5DF68 /* OPPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CEEE031C3263D800D5DF68 /* OPPlayerManager.m */; };
+		25CEEE071C32652100D5DF68 /* OPGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CEEE061C32652100D5DF68 /* OPGameView.m */; };
+		25CEEE091C32653000D5DF68 /* OPGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25CEEE081C32653000D5DF68 /* OPGameView.xib */; };
+		25CEEE0C1C32657200D5DF68 /* OPGamePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CEEE0B1C32657200D5DF68 /* OPGamePiece.m */; };
+		25CEEE0E1C32658700D5DF68 /* OPGamePieceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25CEEE0D1C32658700D5DF68 /* OPGamePieceView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		25B053D41C3116860074FC11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25B053B21C3116850074FC11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 25B053B91C3116850074FC11;
+			remoteInfo = OPTicTacToe;
+		};
+		25B053DF1C3116860074FC11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25B053B21C3116850074FC11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 25B053B91C3116850074FC11;
+			remoteInfo = OPTicTacToe;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		25B053BA1C3116850074FC11 /* OPTicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OPTicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		25B053BE1C3116850074FC11 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		25B053C01C3116850074FC11 /* OPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OPAppDelegate.h; sourceTree = "<group>"; };
+		25B053C11C3116850074FC11 /* OPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OPAppDelegate.m; sourceTree = "<group>"; };
+		25B053C31C3116850074FC11 /* OPMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OPMenuViewController.h; sourceTree = "<group>"; };
+		25B053C41C3116850074FC11 /* OPMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OPMenuViewController.m; sourceTree = "<group>"; };
+		25B053C91C3116850074FC11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		25B053CE1C3116860074FC11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25B053D31C3116860074FC11 /* OPTicTacToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OPTicTacToeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		25B053D71C3116860074FC11 /* OPTicTacToeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OPTicTacToeTests.m; sourceTree = "<group>"; };
+		25B053D91C3116860074FC11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25B053DE1C3116860074FC11 /* OPTicTacToeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OPTicTacToeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		25B053E21C3116860074FC11 /* OPTicTacToeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OPTicTacToeUITests.m; sourceTree = "<group>"; };
+		25B053E41C3116860074FC11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25B053F21C3119DF0074FC11 /* OPMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPMenuViewController.xib; sourceTree = "<group>"; };
+		25CEEDF91C31C1F100D5DF68 /* OPGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPGameViewController.h; sourceTree = "<group>"; };
+		25CEEDFA1C31C1F100D5DF68 /* OPGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGameViewController.m; sourceTree = "<group>"; };
+		25CEEDFC1C31C20400D5DF68 /* OPGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPGameViewController.xib; sourceTree = "<group>"; };
+		25CEEDFF1C31C2A700D5DF68 /* OPGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPGame.h; sourceTree = "<group>"; };
+		25CEEE001C31C2A700D5DF68 /* OPGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGame.m; sourceTree = "<group>"; };
+		25CEEE021C3263D800D5DF68 /* OPPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPlayerManager.h; sourceTree = "<group>"; };
+		25CEEE031C3263D800D5DF68 /* OPPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPlayerManager.m; sourceTree = "<group>"; };
+		25CEEE051C32652100D5DF68 /* OPGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPGameView.h; sourceTree = "<group>"; };
+		25CEEE061C32652100D5DF68 /* OPGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGameView.m; sourceTree = "<group>"; };
+		25CEEE081C32653000D5DF68 /* OPGameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPGameView.xib; sourceTree = "<group>"; };
+		25CEEE0A1C32657200D5DF68 /* OPGamePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPGamePiece.h; sourceTree = "<group>"; };
+		25CEEE0B1C32657200D5DF68 /* OPGamePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGamePiece.m; sourceTree = "<group>"; };
+		25CEEE0D1C32658700D5DF68 /* OPGamePieceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPGamePieceView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		25B053B71C3116850074FC11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25B053D01C3116860074FC11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25B053DB1C3116860074FC11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		25B053B11C3116850074FC11 = {
+			isa = PBXGroup;
+			children = (
+				25B053BC1C3116850074FC11 /* OPTicTacToe */,
+				25B053D61C3116860074FC11 /* OPTicTacToeTests */,
+				25B053E11C3116860074FC11 /* OPTicTacToeUITests */,
+				25B053BB1C3116850074FC11 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		25B053BB1C3116850074FC11 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				25B053BA1C3116850074FC11 /* OPTicTacToe.app */,
+				25B053D31C3116860074FC11 /* OPTicTacToeTests.xctest */,
+				25B053DE1C3116860074FC11 /* OPTicTacToeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		25B053BC1C3116850074FC11 /* OPTicTacToe */ = {
+			isa = PBXGroup;
+			children = (
+				25CEEDFE1C31C28000D5DF68 /* Models */,
+				25B053F11C3119D40074FC11 /* Views */,
+				25B053F01C3119A60074FC11 /* ViewControllers */,
+				25B053C01C3116850074FC11 /* OPAppDelegate.h */,
+				25B053C11C3116850074FC11 /* OPAppDelegate.m */,
+				25B053C91C3116850074FC11 /* Assets.xcassets */,
+				25B053CE1C3116860074FC11 /* Info.plist */,
+				25B053BD1C3116850074FC11 /* Supporting Files */,
+			);
+			path = OPTicTacToe;
+			sourceTree = "<group>";
+		};
+		25B053BD1C3116850074FC11 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				25B053BE1C3116850074FC11 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		25B053D61C3116860074FC11 /* OPTicTacToeTests */ = {
+			isa = PBXGroup;
+			children = (
+				25B053D71C3116860074FC11 /* OPTicTacToeTests.m */,
+				25B053D91C3116860074FC11 /* Info.plist */,
+			);
+			path = OPTicTacToeTests;
+			sourceTree = "<group>";
+		};
+		25B053E11C3116860074FC11 /* OPTicTacToeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				25B053E21C3116860074FC11 /* OPTicTacToeUITests.m */,
+				25B053E41C3116860074FC11 /* Info.plist */,
+			);
+			path = OPTicTacToeUITests;
+			sourceTree = "<group>";
+		};
+		25B053F01C3119A60074FC11 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				25B053C31C3116850074FC11 /* OPMenuViewController.h */,
+				25B053C41C3116850074FC11 /* OPMenuViewController.m */,
+				25CEEDF91C31C1F100D5DF68 /* OPGameViewController.h */,
+				25CEEDFA1C31C1F100D5DF68 /* OPGameViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		25B053F11C3119D40074FC11 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				25B053F21C3119DF0074FC11 /* OPMenuViewController.xib */,
+				25CEEDFC1C31C20400D5DF68 /* OPGameViewController.xib */,
+				25CEEE081C32653000D5DF68 /* OPGameView.xib */,
+				25CEEE0D1C32658700D5DF68 /* OPGamePieceView.xib */,
+				25CEEE051C32652100D5DF68 /* OPGameView.h */,
+				25CEEE061C32652100D5DF68 /* OPGameView.m */,
+				25CEEE0A1C32657200D5DF68 /* OPGamePiece.h */,
+				25CEEE0B1C32657200D5DF68 /* OPGamePiece.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		25CEEDFE1C31C28000D5DF68 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				25CEEDFF1C31C2A700D5DF68 /* OPGame.h */,
+				25CEEE001C31C2A700D5DF68 /* OPGame.m */,
+				25CEEE021C3263D800D5DF68 /* OPPlayerManager.h */,
+				25CEEE031C3263D800D5DF68 /* OPPlayerManager.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		25B053B91C3116850074FC11 /* OPTicTacToe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25B053E71C3116860074FC11 /* Build configuration list for PBXNativeTarget "OPTicTacToe" */;
+			buildPhases = (
+				25B053B61C3116850074FC11 /* Sources */,
+				25B053B71C3116850074FC11 /* Frameworks */,
+				25B053B81C3116850074FC11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OPTicTacToe;
+			productName = OPTicTacToe;
+			productReference = 25B053BA1C3116850074FC11 /* OPTicTacToe.app */;
+			productType = "com.apple.product-type.application";
+		};
+		25B053D21C3116860074FC11 /* OPTicTacToeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25B053EA1C3116860074FC11 /* Build configuration list for PBXNativeTarget "OPTicTacToeTests" */;
+			buildPhases = (
+				25B053CF1C3116860074FC11 /* Sources */,
+				25B053D01C3116860074FC11 /* Frameworks */,
+				25B053D11C3116860074FC11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				25B053D51C3116860074FC11 /* PBXTargetDependency */,
+			);
+			name = OPTicTacToeTests;
+			productName = OPTicTacToeTests;
+			productReference = 25B053D31C3116860074FC11 /* OPTicTacToeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		25B053DD1C3116860074FC11 /* OPTicTacToeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25B053ED1C3116860074FC11 /* Build configuration list for PBXNativeTarget "OPTicTacToeUITests" */;
+			buildPhases = (
+				25B053DA1C3116860074FC11 /* Sources */,
+				25B053DB1C3116860074FC11 /* Frameworks */,
+				25B053DC1C3116860074FC11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				25B053E01C3116860074FC11 /* PBXTargetDependency */,
+			);
+			name = OPTicTacToeUITests;
+			productName = OPTicTacToeUITests;
+			productReference = 25B053DE1C3116860074FC11 /* OPTicTacToeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		25B053B21C3116850074FC11 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = OP;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Siddhant Dange";
+				TargetAttributes = {
+					25B053B91C3116850074FC11 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					25B053D21C3116860074FC11 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 25B053B91C3116850074FC11;
+					};
+					25B053DD1C3116860074FC11 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 25B053B91C3116850074FC11;
+					};
+				};
+			};
+			buildConfigurationList = 25B053B51C3116850074FC11 /* Build configuration list for PBXProject "OPTicTacToe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 25B053B11C3116850074FC11;
+			productRefGroup = 25B053BB1C3116850074FC11 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				25B053B91C3116850074FC11 /* OPTicTacToe */,
+				25B053D21C3116860074FC11 /* OPTicTacToeTests */,
+				25B053DD1C3116860074FC11 /* OPTicTacToeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		25B053B81C3116850074FC11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25B053F31C3119DF0074FC11 /* OPMenuViewController.xib in Resources */,
+				25B053CA1C3116850074FC11 /* Assets.xcassets in Resources */,
+				25CEEE0E1C32658700D5DF68 /* OPGamePieceView.xib in Resources */,
+				25CEEDFD1C31C20400D5DF68 /* OPGameViewController.xib in Resources */,
+				25CEEE091C32653000D5DF68 /* OPGameView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25B053D11C3116860074FC11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25B053DC1C3116860074FC11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		25B053B61C3116850074FC11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25B053C51C3116850074FC11 /* OPMenuViewController.m in Sources */,
+				25CEEDFB1C31C1F100D5DF68 /* OPGameViewController.m in Sources */,
+				25B053C21C3116850074FC11 /* OPAppDelegate.m in Sources */,
+				25CEEE041C3263D800D5DF68 /* OPPlayerManager.m in Sources */,
+				25CEEE011C31C2A700D5DF68 /* OPGame.m in Sources */,
+				25CEEE071C32652100D5DF68 /* OPGameView.m in Sources */,
+				25B053BF1C3116850074FC11 /* main.m in Sources */,
+				25CEEE0C1C32657200D5DF68 /* OPGamePiece.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25B053CF1C3116860074FC11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25B053D81C3116860074FC11 /* OPTicTacToeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25B053DA1C3116860074FC11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25B053E31C3116860074FC11 /* OPTicTacToeUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		25B053D51C3116860074FC11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 25B053B91C3116850074FC11 /* OPTicTacToe */;
+			targetProxy = 25B053D41C3116860074FC11 /* PBXContainerItemProxy */;
+		};
+		25B053E01C3116860074FC11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 25B053B91C3116850074FC11 /* OPTicTacToe */;
+			targetProxy = 25B053DF1C3116860074FC11 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		25B053E51C3116860074FC11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		25B053E61C3116860074FC11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		25B053E81C3116860074FC11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = OPTicTacToe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.siddhantdange.OPTicTacToe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		25B053E91C3116860074FC11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = OPTicTacToe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.siddhantdange.OPTicTacToe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		25B053EB1C3116860074FC11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = OPTicTacToeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.siddhantdange.OPTicTacToeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OPTicTacToe.app/OPTicTacToe";
+			};
+			name = Debug;
+		};
+		25B053EC1C3116860074FC11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = OPTicTacToeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.siddhantdange.OPTicTacToeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OPTicTacToe.app/OPTicTacToe";
+			};
+			name = Release;
+		};
+		25B053EE1C3116860074FC11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = OPTicTacToeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.siddhantdange.OPTicTacToeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = OPTicTacToe;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		25B053EF1C3116860074FC11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = OPTicTacToeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.siddhantdange.OPTicTacToeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = OPTicTacToe;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		25B053B51C3116850074FC11 /* Build configuration list for PBXProject "OPTicTacToe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25B053E51C3116860074FC11 /* Debug */,
+				25B053E61C3116860074FC11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		25B053E71C3116860074FC11 /* Build configuration list for PBXNativeTarget "OPTicTacToe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25B053E81C3116860074FC11 /* Debug */,
+				25B053E91C3116860074FC11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		25B053EA1C3116860074FC11 /* Build configuration list for PBXNativeTarget "OPTicTacToeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25B053EB1C3116860074FC11 /* Debug */,
+				25B053EC1C3116860074FC11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		25B053ED1C3116860074FC11 /* Build configuration list for PBXNativeTarget "OPTicTacToeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25B053EE1C3116860074FC11 /* Debug */,
+				25B053EF1C3116860074FC11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 25B053B21C3116850074FC11 /* Project object */;
+}
