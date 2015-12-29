@@ -28,6 +28,9 @@
     self.game = [[OPGame alloc] init];
     self.playerManager = [[OPPlayerManager alloc] init];
     [self.view addSubview:self.gameView];
+    [self.gameView drawValue:@"x" atX:0 Y:0];
+    [self.gameView drawValue:@"o" atX:1 Y:1];
+    [self.gameView drawValue:@"x" atX:2 Y:2];
 }
 
 
