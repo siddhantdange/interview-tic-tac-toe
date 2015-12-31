@@ -130,8 +130,6 @@
 				25B053C01C3116850074FC11 /* OPAppDelegate.h */,
 				25B053C11C3116850074FC11 /* OPAppDelegate.m */,
 				25B053C91C3116850074FC11 /* Assets.xcassets */,
-				25CEEE111C326BB400D5DF68 /* o-mark.png */,
-				25CEEE0F1C326BAD00D5DF68 /* x-mark.png */,
 				25B053CE1C3116860074FC11 /* Info.plist */,
 				25B053BD1C3116850074FC11 /* Supporting Files */,
 			);
@@ -141,6 +139,7 @@
 		25B053BD1C3116850074FC11 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				25CEEE141C34D84800D5DF68 /* images */,
 				25B053BE1C3116850074FC11 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -178,14 +177,11 @@
 		25B053F11C3119D40074FC11 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				25B053F21C3119DF0074FC11 /* OPMenuViewController.xib */,
-				25CEEDFC1C31C20400D5DF68 /* OPGameViewController.xib */,
-				25CEEE081C32653000D5DF68 /* OPGameView.xib */,
-				25CEEE0D1C32658700D5DF68 /* OPGamePiece.xib */,
 				25CEEE051C32652100D5DF68 /* OPGameView.h */,
 				25CEEE061C32652100D5DF68 /* OPGameView.m */,
 				25CEEE0A1C32657200D5DF68 /* OPGamePiece.h */,
 				25CEEE0B1C32657200D5DF68 /* OPGamePiece.m */,
+				25CEEE131C34D83300D5DF68 /* Xibs */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -199,6 +195,26 @@
 				25CEEE031C3263D800D5DF68 /* OPPlayerManager.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		25CEEE131C34D83300D5DF68 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				25B053F21C3119DF0074FC11 /* OPMenuViewController.xib */,
+				25CEEDFC1C31C20400D5DF68 /* OPGameViewController.xib */,
+				25CEEE081C32653000D5DF68 /* OPGameView.xib */,
+				25CEEE0D1C32658700D5DF68 /* OPGamePiece.xib */,
+			);
+			name = Xibs;
+			sourceTree = "<group>";
+		};
+		25CEEE141C34D84800D5DF68 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				25CEEE111C326BB400D5DF68 /* o-mark.png */,
+				25CEEE0F1C326BAD00D5DF68 /* x-mark.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
