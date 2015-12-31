@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, OPGamePlayer) {
-    OPGamePlayerOne,
-    OPGamePlayerTwo
-};
+#import "OPPlayerConstants.h"
 
 @interface OPPlayerManager : NSObject
 

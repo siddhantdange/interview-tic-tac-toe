@@ -10,15 +10,17 @@
 
 #import "OPGame.h"
 #import "OPGameView.h"
-#import "OPPlayerManager.h"
+#import "OPPlayerConstants.h"
 
-@interface OPGameViewController ()
+@interface OPGameViewController () <OPGameDelegate>
 
 @property (nonatomic, strong) OPGame *game;
 
 @end
 
 @implementation OPGameViewController
+
+#pragma mark - LifeCycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,11 +29,55 @@
 }
 
 
+- (void)popToMainScreen {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+
+#pragma mark - OPGameDelegate
+
+- (void)gameWon:(OPGamePlayer)player {
+    NSString *playerWon = @"";
+    if (player == OPGamePlayerOne) {
+        playerWon = @"Player One";
+    } else {
+        playerWon = @"Player Two";
+    }
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over!"
+                                                                   message:[NSString stringWithFormat:@"%@ won!", playerWon]
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Good Game!"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * _Nonnull action) {
+                                                       [self popToMainScreen];
+    }];
+    
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+
+- (void)gameTie {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Tie!"
+                                                                   message:@"Both Players Have Tied!"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Good Game!"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * _Nonnull action) {
+                                                       [self popToMainScreen];
+                                                   }];
+    
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 #pragma mark - Getters and Setters
 
 - (OPGame *)game {
     if (!_game) {
-        _game = [[OPGame alloc] init];
+        _game = [[OPGame alloc] initWithDelegate:self];
         CGRect gameFrame = _game.view.frame;
         float midX = ([UIScreen mainScreen].bounds.size.width - gameFrame.size.width)/2.0f;
         float midY = ([UIScreen mainScreen].bounds.size.height - gameFrame.size.height)/2.0f;

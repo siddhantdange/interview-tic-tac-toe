@@ -74,6 +74,7 @@
 		25CEEE0D1C32658700D5DF68 /* OPGamePiece.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPGamePiece.xib; sourceTree = "<group>"; };
 		25CEEE0F1C326BAD00D5DF68 /* x-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-mark.png"; sourceTree = "<group>"; };
 		25CEEE111C326BB400D5DF68 /* o-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "o-mark.png"; sourceTree = "<group>"; };
+		25CEEE151C34E0CB00D5DF68 /* OPPlayerConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OPPlayerConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +194,7 @@
 				25CEEE001C31C2A700D5DF68 /* OPGame.m */,
 				25CEEE021C3263D800D5DF68 /* OPPlayerManager.h */,
 				25CEEE031C3263D800D5DF68 /* OPPlayerManager.m */,
+				25CEEE161C34E0F600D5DF68 /* Constants */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -215,6 +217,14 @@
 				25CEEE0F1C326BAD00D5DF68 /* x-mark.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		25CEEE161C34E0F600D5DF68 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				25CEEE151C34E0CB00D5DF68 /* OPPlayerConstants.h */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -11,8 +11,20 @@
 @import UIKit;
 
 #import "OPGameView.h"
+#import "OPPlayerConstants.h"
+#import "OPPlayerManager.h"
+
+@protocol OPGameDelegate <NSObject>
+
+@required
+- (void)gameWon:(OPGamePlayer)player;
+- (void)gameTie;
+
+@end
 
 @interface OPGame : NSObject
+
+- (instancetype)initWithDelegate:(NSObject<OPGameDelegate>*)delegate;
 
 @property (nonatomic, strong) OPGameView *view;
 
