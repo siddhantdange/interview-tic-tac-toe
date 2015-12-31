@@ -121,6 +121,11 @@
 }
 
 
+- (BOOL)checkCellValidX:(int)x Y:(int)y {
+    return [self.board[y][x] isEqual:@(OPGameValueOpen)];
+}
+
+
 #pragma mark - GamePlay
 
 - (void)updateGameWithX:(int)x Y:(int)y value:(OPGameValue)value {
@@ -150,6 +155,11 @@
 #pragma mark - OPGameViewDelegate
 
 - (void)cellTapped:(CGPoint)point {
+
+    if (![self checkCellValidX:point.x Y:point.y]) {
+        return;
+    }
+
     OPGameValue value;
     if (self.playerManager.currentPlayer == OPGamePlayerOne) {
         value = OPGameValueX;
