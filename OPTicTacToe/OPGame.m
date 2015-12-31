@@ -7,6 +7,8 @@
 //
 
 #import "OPGame.h"
+#import "OPGameView.h"
+
 
 @interface OPGame ()
 
@@ -33,14 +35,14 @@
 #pragma mark - Board Check
 
 - (void)checkBoardWithNewX:(int)x y:(int)y {
-    BOOL won = [self checkRowWithX:x y:y] || [self checkColWithX:x y:y] || [self checkDiagWithX:x y:y];
+    BOOL won = [self checkRowWithX:x Y:y] || [self checkColWithX:x Y:y] || [self checkDiagWithX:x Y:y];
     if (won) {
         // win callback
     }
 }
 
 
-- (BOOL)checkRowWithX:(int)x y:(int)y {
+- (BOOL)checkRowWithX:(int)x Y:(int)y {
     NSString *mark = self.board[y][x];
     
     for (int col = 0; col < 3; col++) {
@@ -55,7 +57,7 @@
 }
 
 
-- (BOOL)checkColWithX:(int)x y:(int)y {
+- (BOOL)checkColWithX:(int)x Y:(int)y {
     NSString *mark = self.board[y][x];
     
     for (int row = 0; row < 3; row++) {
@@ -70,7 +72,7 @@
 }
 
 
-- (BOOL)checkDiagWithX:(int)x y:(int)y {
+- (BOOL)checkDiagWithX:(int)x Y:(int)y {
     
     // if new mark isn't on diags
     if ((x + y) % 2 == 1) {
@@ -94,6 +96,17 @@
     }
     
     return YES;
+}
+
+
+#pragma mark - Getters and Setters
+
+-(UIView *)view {
+    if (!_view) {
+        _view = [[OPGameView alloc] init];
+    }
+    
+    return _view;
 }
 
 @end

@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@import UIKit;
+
 @interface OPGame : NSObject
+
+@property (nonatomic, strong) UIView *view;
 
 @end

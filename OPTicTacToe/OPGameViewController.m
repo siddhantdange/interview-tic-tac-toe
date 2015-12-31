@@ -14,7 +14,6 @@
 
 @interface OPGameViewController ()
 
-@property (nonatomic, strong) OPGameView *gameView;
 @property (nonatomic, strong) OPPlayerManager *playerManager;
 @property (nonatomic, strong) OPGame *game;
 
@@ -24,28 +23,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.game = [[OPGame alloc] init];
+
     self.playerManager = [[OPPlayerManager alloc] init];
-    [self.view addSubview:self.gameView];
-    [self.gameView drawValue:@"x" atX:0 Y:0];
-    [self.gameView drawValue:@"o" atX:1 Y:1];
-    [self.gameView drawValue:@"x" atX:2 Y:2];
+    [self.view addSubview:self.game.view];
 }
 
 
 #pragma mark - Getters and Setters
 
-- (OPGameView *)gameView {
-    if (!_gameView) {
-        _gameView = [[OPGameView alloc] init];
-        CGRect gameFrame = _gameView.frame;
+- (OPGame *)game {
+    if (!_game) {
+        _game = [[OPGame alloc] init];
+        CGRect gameFrame = _game.view.frame;
         float midX = ([UIScreen mainScreen].bounds.size.width - gameFrame.size.width)/2.0f;
-        gameFrame.origin = CGPointMake(midX, 100.0f);
-        _gameView.frame = gameFrame;
+        float midY = ([UIScreen mainScreen].bounds.size.height - gameFrame.size.height)/2.0f;
+        gameFrame.origin = CGPointMake(midX, midY);
+        _game.view.frame = gameFrame;
     }
     
-    return _gameView;
+    return _game;
 }
 
 @end
