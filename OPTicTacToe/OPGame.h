@@ -10,8 +10,10 @@
 
 @import UIKit;
 
+#import "OPGameView.h"
+
 @interface OPGame : NSObject
 
-@property (nonatomic, strong) UIView *view;
+@property (nonatomic, strong) OPGameView *view;
 
 @end

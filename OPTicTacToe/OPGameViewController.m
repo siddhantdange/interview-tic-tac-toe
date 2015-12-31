@@ -14,7 +14,6 @@
 
 @interface OPGameViewController ()
 
-@property (nonatomic, strong) OPPlayerManager *playerManager;
 @property (nonatomic, strong) OPGame *game;
 
 @end
@@ -24,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.playerManager = [[OPPlayerManager alloc] init];
     [self.view addSubview:self.game.view];
 }
 

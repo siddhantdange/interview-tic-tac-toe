@@ -7,12 +7,15 @@
 //
 
 #import "OPGame.h"
+
 #import "OPGameView.h"
+#import "OPPlayerManager.h"
 
 
-@interface OPGame ()
+@interface OPGame () <OPGameViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *board;
+@property (nonatomic, strong) OPPlayerManager *playerManager;
 
 @end
 
@@ -21,11 +24,15 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        
+        // init 3x3 board
         self.board = [@[] mutableCopy];
 
         for (int i = 0; i < 3; i++) {
             [self.board addObject:[@[@"1", @"1", @"1"] mutableCopy]];
         }
+        
+        self.playerManager = [[OPPlayerManager alloc] init];
     }
     
     return self;
@@ -99,11 +106,26 @@
 }
 
 
+#pragma mark - OPGameViewDelegate
+
+- (void)cellTapped:(CGPoint)point {
+    NSString *value = @"";
+    if (self.playerManager.currentPlayer == OPGamePlayerOne) {
+        value = @"x";
+    } else {
+        value = @"o";
+    }
+    
+    [self.view drawValue:value atX:point.x Y:point.y];
+    [self.playerManager switchPlayer];
+}
+
+
 #pragma mark - Getters and Setters
 
 -(UIView *)view {
     if (!_view) {
-        _view = [[OPGameView alloc] init];
+        _view = [[OPGameView alloc] initWithDelegate:self];
     }
     
     return _view;

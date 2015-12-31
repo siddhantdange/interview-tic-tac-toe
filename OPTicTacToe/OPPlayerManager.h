@@ -17,4 +17,6 @@ typedef NS_ENUM(NSInteger, OPGamePlayer) {
 
 @property (nonatomic, assign) OPGamePlayer currentPlayer;
 
+- (void)switchPlayer;
+
 @end

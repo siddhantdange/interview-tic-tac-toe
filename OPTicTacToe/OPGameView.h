@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol OPGameViewDelegate <NSObject>
+
+@required
+- (void)cellTapped:(CGPoint)point;
+
+@end
+
 @interface OPGameView : UIView
 
-- (instancetype)init;
+- (instancetype)initWithDelegate:(NSObject<OPGameViewDelegate>*)delegate;
 - (void)drawValue:(NSString *)value atX:(int)x Y:(int)y;
 
 @end
