@@ -33,6 +33,7 @@
     return self;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -83,6 +84,7 @@
     [alert addAction:action];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
 
 #pragma mark - Getters and Setters
 

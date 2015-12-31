@@ -8,10 +8,6 @@
 
 #import "OPPlayerManager.h"
 
-@interface OPPlayerManager ()
-
-
-@end
 
 @implementation OPPlayerManager
 

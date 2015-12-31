@@ -25,6 +25,7 @@
     [self.cellNumSlider setValue:lroundf(self.cellNumSlider.value) animated:YES];
 }
 
+
 - (IBAction)playPressed:(id)sender {
     OPGameConfig *config = [[OPGameConfig alloc] initWithGameCellLength:(int)self.cellNumSlider.value];
     
