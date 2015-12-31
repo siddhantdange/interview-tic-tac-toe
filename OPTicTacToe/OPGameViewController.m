@@ -9,18 +9,29 @@
 #import "OPGameViewController.h"
 
 #import "OPGame.h"
+#import "OPGameConfig.h"
 #import "OPGameView.h"
 #import "OPPlayerConstants.h"
 
 @interface OPGameViewController () <OPGameDelegate>
 
 @property (nonatomic, strong) OPGame *game;
+@property (nonatomic, strong) OPGameConfig *config;
 
 @end
 
 @implementation OPGameViewController
 
 #pragma mark - LifeCycle
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil gameConfig:(OPGameConfig *)config {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.config = config;
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -77,7 +88,7 @@
 
 - (OPGame *)game {
     if (!_game) {
-        _game = [[OPGame alloc] initWithDelegate:self];
+        _game = [[OPGame alloc] initWithDelegate:self config:self.config];
         CGRect gameFrame = _game.view.frame;
         float midX = ([UIScreen mainScreen].bounds.size.width - gameFrame.size.width)/2.0f;
         float midY = ([UIScreen mainScreen].bounds.size.height - gameFrame.size.height)/2.0f;

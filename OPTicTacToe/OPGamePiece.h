@@ -10,6 +10,6 @@
 
 @interface OPGamePiece : UIView
 
-- (instancetype)initWithValue:(NSString *)value;
+- (instancetype)initWithValue:(NSString *)value sideLength:(float)sideLength;
 
 @end

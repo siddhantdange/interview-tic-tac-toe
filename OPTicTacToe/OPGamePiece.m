@@ -10,18 +10,21 @@
 
 @interface OPGamePiece ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
 @end
 
 @implementation OPGamePiece
 
-- (instancetype)initWithValue:(NSString *)value {
-    self = (OPGamePiece*)[[[NSBundle mainBundle] loadNibNamed:@"OPGamePiece" owner:self options:nil] objectAtIndex:0];
-    if ([value isEqualToString:@"x"]) {
-        self.imageView.image = [UIImage imageNamed:@"x-mark"];
-    } else {
-        self.imageView.image = [UIImage imageNamed:@"o-mark"];
+- (instancetype)initWithValue:(NSString *)value sideLength:(float)sideLength {
+    self = [super initWithFrame:CGRectMake(0.0f, 0.0f, sideLength, sideLength)];
+    if (self) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.frame];
+        if ([value isEqualToString:@"x"]) {
+            imageView.image = [UIImage imageNamed:@"x-mark"];
+        } else {
+            imageView.image = [UIImage imageNamed:@"o-mark"];
+        }
+        
+        [self addSubview:imageView];
     }
     
     return self;

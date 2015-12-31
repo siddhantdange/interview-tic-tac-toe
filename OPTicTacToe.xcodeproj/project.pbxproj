@@ -24,6 +24,7 @@
 		25CEEE0E1C32658700D5DF68 /* OPGamePiece.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25CEEE0D1C32658700D5DF68 /* OPGamePiece.xib */; };
 		25CEEE101C326BAD00D5DF68 /* x-mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 25CEEE0F1C326BAD00D5DF68 /* x-mark.png */; };
 		25CEEE121C326BB400D5DF68 /* o-mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 25CEEE111C326BB400D5DF68 /* o-mark.png */; };
+		25CEEE191C34F78E00D5DF68 /* OPGameConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CEEE181C34F78E00D5DF68 /* OPGameConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		25CEEE0F1C326BAD00D5DF68 /* x-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-mark.png"; sourceTree = "<group>"; };
 		25CEEE111C326BB400D5DF68 /* o-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "o-mark.png"; sourceTree = "<group>"; };
 		25CEEE151C34E0CB00D5DF68 /* OPPlayerConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OPPlayerConstants.h; sourceTree = "<group>"; };
+		25CEEE171C34F78E00D5DF68 /* OPGameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPGameConfig.h; sourceTree = "<group>"; };
+		25CEEE181C34F78E00D5DF68 /* OPGameConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGameConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +197,8 @@
 				25CEEE001C31C2A700D5DF68 /* OPGame.m */,
 				25CEEE021C3263D800D5DF68 /* OPPlayerManager.h */,
 				25CEEE031C3263D800D5DF68 /* OPPlayerManager.m */,
+				25CEEE171C34F78E00D5DF68 /* OPGameConfig.h */,
+				25CEEE181C34F78E00D5DF68 /* OPGameConfig.m */,
 				25CEEE161C34E0F600D5DF68 /* Constants */,
 			);
 			name = Models;
@@ -365,6 +370,7 @@
 				25B053C51C3116850074FC11 /* OPMenuViewController.m in Sources */,
 				25CEEDFB1C31C1F100D5DF68 /* OPGameViewController.m in Sources */,
 				25B053C21C3116850074FC11 /* OPAppDelegate.m in Sources */,
+				25CEEE191C34F78E00D5DF68 /* OPGameConfig.m in Sources */,
 				25CEEE041C3263D800D5DF68 /* OPPlayerManager.m in Sources */,
 				25CEEE011C31C2A700D5DF68 /* OPGame.m in Sources */,
 				25CEEE071C32652100D5DF68 /* OPGameView.m in Sources */,

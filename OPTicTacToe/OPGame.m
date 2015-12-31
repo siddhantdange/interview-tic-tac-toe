@@ -9,30 +9,36 @@
 #import "OPGame.h"
 
 #import "OPGameView.h"
-
+#import "OPGameConfig.h"
 
 @interface OPGame () <OPGameViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *board;
 @property (nonatomic, strong) OPPlayerManager *playerManager;
+@property (nonatomic, strong) OPGameConfig *config;
 @property (nonatomic, weak) NSObject<OPGameDelegate> *delegate;
 
 @end
 
 @implementation OPGame
 
-- (instancetype)initWithDelegate:(NSObject<OPGameDelegate> *)delegate {
+- (instancetype)initWithDelegate:(NSObject<OPGameDelegate> *)delegate config:(OPGameConfig *)config {
     self = [super init];
     if (self) {
         
-        // init 3x3 board
+        // init nxn board
         self.board = [@[] mutableCopy];
 
-        for (int i = 0; i < 3; i++) {
-            [self.board addObject:[@[@"1", @"1", @"1"] mutableCopy]];
+        for (int i = 0; i < config.gameCellLength; i++) {
+            NSMutableArray *row = [NSMutableArray array];
+            for (int j = 0; j < config.gameCellLength; j++) {
+                [row addObject:@"1"];
+            }
+            [self.board addObject:row];
         }
         
         self.playerManager = [[OPPlayerManager alloc] init];
+        self.config = config;
         self.delegate = delegate;
     }
     
@@ -50,7 +56,7 @@
 - (BOOL)checkRowWithX:(int)x Y:(int)y {
     NSString *mark = self.board[y][x];
     
-    for (int col = 0; col < 3; col++) {
+    for (int col = 0; col < self.config.gameCellLength; col++) {
         
         // if not same type of mark
         if (self.board[y][col] != mark) {
@@ -65,7 +71,7 @@
 - (BOOL)checkColWithX:(int)x Y:(int)y {
     NSString *mark = self.board[y][x];
     
-    for (int row = 0; row < 3; row++) {
+    for (int row = 0; row < self.config.gameCellLength; row++) {
         
         // if not same type of mark
         if (self.board[row][x] != mark) {
@@ -89,7 +95,7 @@
     BOOL diag1 = YES;
     BOOL diag2 = YES;
     
-    for (int rowCol = 0; rowCol < 3; rowCol++) {
+    for (int rowCol = 0; rowCol < self.config.gameCellLength; rowCol++) {
         
         // if not same type of mark
         if (self.board[rowCol][rowCol] != mark) {
@@ -97,7 +103,7 @@
         }
         
         // if not same type of mark
-        if (self.board[rowCol][2 - rowCol] != mark) {
+        if (self.board[rowCol][(self.config.gameCellLength - 1) - rowCol] != mark) {
             diag2 = NO;
         }
     }
@@ -107,8 +113,8 @@
 
 
 - (BOOL)checkTieWithNewX:(int)x Y:(int)y {
-    for (int row = 0; row < 3; row++) {
-        for (int col = 0; col < 3; col++) {
+    for (int row = 0; row < self.config.gameCellLength; row++) {
+        for (int col = 0; col < self.config.gameCellLength; col++) {
             if ([self.board[row][col] isEqualToString:@"1"]) {
                 return NO;
             }
@@ -164,7 +170,7 @@
 
 -(UIView *)view {
     if (!_view) {
-        _view = [[OPGameView alloc] initWithDelegate:self];
+        _view = [[OPGameView alloc] initWithDelegate:self gameCellLength:self.config.gameCellLength];
     }
     
     return _view;

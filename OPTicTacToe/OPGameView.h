@@ -17,7 +17,7 @@
 
 @interface OPGameView : UIView
 
-- (instancetype)initWithDelegate:(NSObject<OPGameViewDelegate>*)delegate;
+- (instancetype)initWithDelegate:(NSObject<OPGameViewDelegate>*)delegate gameCellLength:(int)cells;
 - (void)drawValue:(NSString *)value atX:(int)x Y:(int)y;
 
 @end

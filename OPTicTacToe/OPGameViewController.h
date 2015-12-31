@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class OPGameConfig;
+
 @interface OPGameViewController : UIViewController
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil gameConfig:(OPGameConfig *)config;
+    
 @end

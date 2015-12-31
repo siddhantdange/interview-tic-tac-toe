@@ -10,9 +10,12 @@
 
 @import UIKit;
 
-#import "OPGameView.h"
 #import "OPPlayerConstants.h"
 #import "OPPlayerManager.h"
+
+@class OPGameConfig;
+@class OPGameView;
+
 
 @protocol OPGameDelegate <NSObject>
 
@@ -24,7 +27,7 @@
 
 @interface OPGame : NSObject
 
-- (instancetype)initWithDelegate:(NSObject<OPGameDelegate>*)delegate;
+- (instancetype)initWithDelegate:(NSObject<OPGameDelegate> *)delegate config:(OPGameConfig *)config;
 
 @property (nonatomic, strong) OPGameView *view;
 
