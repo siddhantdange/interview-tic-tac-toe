@@ -8,7 +8,6 @@
 
 #import "OPGameView.h"
 
-#import "OPGamePiece.h"
 
 @interface OPGameView ()
 
@@ -35,7 +34,7 @@
 
 #pragma mark - Drawing
 
-- (void)drawValue:(NSString *)value atX:(int)x Y:(int)y {
+- (void)drawValue:(OPGameValue)value atX:(int)x Y:(int)y {
     OPGamePiece *piece = [[OPGamePiece alloc] initWithValue:value
                                                  sideLength:(self.sideLength/self.gameCellLength) * 0.75];
     

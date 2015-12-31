@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+
+typedef NS_ENUM(NSInteger, OPGameValue) {
+    OPGameValueOpen,
+    OPGameValueX,
+    OPGameValueO
+};
+
 @interface OPGameConfig : NSObject
 
 - (instancetype)initWithGameCellLength:(int)gameCellLength;

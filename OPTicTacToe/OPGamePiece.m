@@ -8,20 +8,22 @@
 
 #import "OPGamePiece.h"
 
-@interface OPGamePiece ()
-
-@end
 
 @implementation OPGamePiece
 
-- (instancetype)initWithValue:(NSString *)value sideLength:(float)sideLength {
+- (instancetype)initWithValue:(OPGameValue)value sideLength:(float)sideLength {
     self = [super initWithFrame:CGRectMake(0.0f, 0.0f, sideLength, sideLength)];
     if (self) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.frame];
-        if ([value isEqualToString:@"x"]) {
-            imageView.image = [UIImage imageNamed:@"x-mark"];
-        } else {
-            imageView.image = [UIImage imageNamed:@"o-mark"];
+        switch (value) {
+            case OPGameValueX:
+                imageView.image = [UIImage imageNamed:@"x-mark"];
+                break;
+            case OPGameValueO:
+                imageView.image = [UIImage imageNamed:@"o-mark"];
+                
+            default:
+                break;
         }
         
         [self addSubview:imageView];

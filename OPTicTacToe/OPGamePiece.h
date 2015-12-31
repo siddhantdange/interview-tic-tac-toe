@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "OPGameConfig.h"
+
+
 @interface OPGamePiece : UIView
 
-- (instancetype)initWithValue:(NSString *)value sideLength:(float)sideLength;
+- (instancetype)initWithValue:(OPGameValue)value sideLength:(float)sideLength;
 
 @end

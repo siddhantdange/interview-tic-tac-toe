@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "OPGamePiece.h"
+
 
 @protocol OPGameViewDelegate <NSObject>
 
@@ -19,6 +21,6 @@
 @interface OPGameView : UIView
 
 - (instancetype)initWithDelegate:(NSObject<OPGameViewDelegate>*)delegate gameCellLength:(int)cells;
-- (void)drawValue:(NSString *)value atX:(int)x Y:(int)y;
+- (void)drawValue:(OPGameValue)value atX:(int)x Y:(int)y;
 
 @end

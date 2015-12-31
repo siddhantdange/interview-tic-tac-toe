@@ -32,7 +32,7 @@
         for (int i = 0; i < config.gameCellLength; i++) {
             NSMutableArray *row = [NSMutableArray array];
             for (int j = 0; j < config.gameCellLength; j++) {
-                [row addObject:@"1"];
+                [row addObject:@(OPGameValueOpen)];
             }
             [self.board addObject:row];
         }
@@ -54,12 +54,11 @@
 
 
 - (BOOL)checkRowWithX:(int)x Y:(int)y {
-    NSString *mark = self.board[y][x];
     
     for (int col = 0; col < self.config.gameCellLength; col++) {
         
         // if not same type of mark
-        if (self.board[y][col] != mark) {
+        if (self.board[y][col] != self.board[y][x]) {
             return NO;
         }
     }
@@ -69,12 +68,11 @@
 
 
 - (BOOL)checkColWithX:(int)x Y:(int)y {
-    NSString *mark = self.board[y][x];
     
     for (int row = 0; row < self.config.gameCellLength; row++) {
         
         // if not same type of mark
-        if (self.board[row][x] != mark) {
+        if (self.board[row][x] != self.board[y][x]) {
             return NO;
         }
     }
@@ -90,20 +88,18 @@
         return NO;
     }
     
-    NSString *mark = self.board[y][x];
-    
     BOOL diag1 = YES;
     BOOL diag2 = YES;
     
     for (int rowCol = 0; rowCol < self.config.gameCellLength; rowCol++) {
         
         // if not same type of mark
-        if (self.board[rowCol][rowCol] != mark) {
+        if (self.board[rowCol][rowCol] != self.board[y][x]) {
             diag1 = NO;
         }
         
         // if not same type of mark
-        if (self.board[rowCol][(self.config.gameCellLength - 1) - rowCol] != mark) {
+        if (self.board[rowCol][(self.config.gameCellLength - 1) - rowCol] != self.board[y][x]) {
             diag2 = NO;
         }
     }
@@ -115,7 +111,7 @@
 - (BOOL)checkTieWithNewX:(int)x Y:(int)y {
     for (int row = 0; row < self.config.gameCellLength; row++) {
         for (int col = 0; col < self.config.gameCellLength; col++) {
-            if ([self.board[row][col] isEqualToString:@"1"]) {
+            if ([self.board[row][col] isEqual:@(OPGameValueOpen)]) {
                 return NO;
             }
         }
@@ -127,8 +123,8 @@
 
 #pragma mark - GamePlay
 
-- (void)updateGameWithX:(int)x Y:(int)y value:(NSString *)value {
-    self.board[y][x] = value;
+- (void)updateGameWithX:(int)x Y:(int)y value:(OPGameValue)value {
+    self.board[y][x] = @(value);
     
     BOOL won = [self checkWinWithNewX:x y:y];
     if (won) {
@@ -154,11 +150,11 @@
 #pragma mark - OPGameViewDelegate
 
 - (void)cellTapped:(CGPoint)point {
-    NSString *value = @"";
+    OPGameValue value;
     if (self.playerManager.currentPlayer == OPGamePlayerOne) {
-        value = @"x";
+        value = OPGameValueX;
     } else {
-        value = @"o";
+        value = OPGameValueO;
     }
     
     [self.view drawValue:value atX:point.x Y:point.y];
