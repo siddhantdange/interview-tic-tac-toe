@@ -18,8 +18,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TIC· TAC· TOE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cka-l7-XEH">
-                    <rect key="frame" x="24" y="99" width="326" height="88"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIC· TAC· TOE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cka-l7-XEH">
+                    <rect key="frame" x="62" y="99" width="250" height="46"/>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="40"/>
                     <color key="textColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
             <color key="backgroundColor" red="0.23529411764705882" green="0.31372549019607843" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Cka-l7-XEH" firstAttribute="centerX" secondItem="nVe-E0-WMB" secondAttribute="centerX" id="6vG-5k-dsz"/>
-                <constraint firstItem="Cka-l7-XEH" firstAttribute="top" secondItem="nVe-E0-WMB" secondAttribute="top" constant="100" id="ALY-xY-481"/>
+                <constraint firstItem="Cka-l7-XEH" firstAttribute="top" secondItem="nVe-E0-WMB" secondAttribute="top" constant="99" id="ALY-xY-481"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <nil key="simulatedTopBarMetrics"/>
