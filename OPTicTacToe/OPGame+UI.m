@@ -6,9 +6,9 @@
 //  Copyright © 2015 Siddhant Dange. All rights reserved.
 //
 
-#import "OPGameView+UI.h"
+#import "OPGame+UI.h"
 
-@implementation OPGameView (UI)
+@implementation OPGame (UI)
 
 
 #pragma mark - Colors

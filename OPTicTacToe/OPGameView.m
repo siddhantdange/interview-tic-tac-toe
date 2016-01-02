@@ -8,7 +8,7 @@
 
 #import "OPGameView.h"
 
-#import "OPGameView+UI.h"
+#import "OPGame+UI.h"
 
 @interface OPGameView ()
 
@@ -53,7 +53,7 @@
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(context, 2.0f);
-    CGContextSetStrokeColorWithColor(context, [OPGameView beigeColor].CGColor);
+    CGContextSetStrokeColorWithColor(context, [OPGame beigeColor].CGColor);
     
     float step = self.sideLength/self.gameCellLength;
     

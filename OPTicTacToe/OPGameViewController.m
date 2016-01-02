@@ -11,7 +11,7 @@
 #import "OPGame.h"
 #import "OPGameConfig.h"
 #import "OPGameView.h"
-#import "OPGameView+UI.h"
+#import "OPGame+UI.h"
 #import "OPPlayerConstants.h"
 
 @interface OPGameViewController () <OPGameDelegate>
@@ -37,7 +37,7 @@
 
 
 - (void)viewDidAppear:(BOOL)animated {
-    [[UINavigationBar appearance] setBarTintColor:[OPGameView greenColor]];
+    [[UINavigationBar appearance] setBarTintColor:[OPGame greenColor]];
     [UINavigationBar appearance].translucent = NO;
     
     self.navigationItem.leftBarButtonItem = [self endGameButtonItem];

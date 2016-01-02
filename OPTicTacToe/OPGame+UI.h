@@ -6,9 +6,9 @@
 //  Copyright © 2015 Siddhant Dange. All rights reserved.
 //
 
-#import "OPGameView.h"
+#import "OPGame.h"
 
-@interface OPGameView (UI)
+@interface OPGame (UI)
 
 + (UIColor *)greenColor;
 + (UIColor *)beigeColor;
