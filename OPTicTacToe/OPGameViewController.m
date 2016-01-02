@@ -11,10 +11,12 @@
 #import "OPGame.h"
 #import "OPGameConfig.h"
 #import "OPGameView.h"
+#import "OPGameView+UI.h"
 #import "OPPlayerConstants.h"
 
 @interface OPGameViewController () <OPGameDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *playerStateLabel;
 @property (nonatomic, strong) OPGame *game;
 @property (nonatomic, strong) OPGameConfig *config;
 
@@ -34,10 +36,30 @@
 }
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewDidAppear:(BOOL)animated {
+    [[UINavigationBar appearance] setBarTintColor:[OPGameView greenColor]];
+    [UINavigationBar appearance].translucent = NO;
+    
+    self.navigationItem.leftBarButtonItem = [self endGameButtonItem];
+    
+    self.game.view.alpha = 0.0f;
 
-    [self.view addSubview:self.game.view];
+    [UIView animateWithDuration:0.2f animations:^{
+        self.navigationController.navigationBarHidden = NO;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5f animations:^{
+            [self.view addSubview:self.game.view];
+            self.game.view.alpha = 1.0f;
+        }];;
+    }];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [UIView animateWithDuration:0.2f animations:^{
+        self.navigationController.navigationBarHidden = YES;
+        self.navigationItem.hidesBackButton = YES;
+    }];
 }
 
 
@@ -51,9 +73,9 @@
 - (void)gameWon:(OPGamePlayer)player {
     NSString *playerWon = @"";
     if (player == OPGamePlayerOne) {
-        playerWon = @"Player One";
+        playerWon = @"Player 1";
     } else {
-        playerWon = @"Player Two";
+        playerWon = @"Player 2";
     }
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over!"
@@ -86,6 +108,20 @@
 }
 
 
+- (void)turnChangedToPlayer:(OPGamePlayer)player {
+    switch (player) {
+        case OPGamePlayerOne:
+            self.playerStateLabel.text = @"PLAYER 1 GO";
+            break;
+        case OPGamePlayerTwo:
+            self.playerStateLabel.text = @"PLAYER 2 GO";
+            break;
+        default:
+            break;
+    }
+}
+
+
 #pragma mark - Getters and Setters
 
 - (OPGame *)game {
@@ -94,11 +130,21 @@
         CGRect gameFrame = _game.view.frame;
         float midX = ([UIScreen mainScreen].bounds.size.width - gameFrame.size.width)/2.0f;
         float midY = ([UIScreen mainScreen].bounds.size.height - gameFrame.size.height)/2.0f;
+        float navigationBarHeight = 40.0f;
+        midY -= navigationBarHeight;
         gameFrame.origin = CGPointMake(midX, midY);
         _game.view.frame = gameFrame;
     }
     
     return _game;
+}
+
+
+- (UIBarButtonItem *)endGameButtonItem {
+    UIButton *endGameButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [endGameButton setBackgroundImage:[UIImage imageNamed:@"endgame.png"] forState:UIControlStateNormal];
+    [endGameButton addTarget:self action:@selector(popToMainScreen) forControlEvents:UIControlEventTouchUpInside];
+    return [[UIBarButtonItem alloc] initWithCustomView:endGameButton];
 }
 
 @end

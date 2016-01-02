@@ -7,7 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OPMenuViewController">
             <connections>
-                <outlet property="cellNumLabel" destination="mgx-Ja-cM3" id="8Eb-Y9-adC"/>
+                <outlet property="cellNumLabel1" destination="mgx-Ja-cM3" id="2o6-x2-8I6"/>
+                <outlet property="cellNumLabel2" destination="muI-vs-SOa" id="i9K-Bh-qQg"/>
                 <outlet property="cellNumSlider" destination="73x-ig-7wW" id="hbx-7T-WH4"/>
                 <outlet property="view" destination="nVe-E0-WMB" id="1F3-fW-ZT9"/>
             </connections>
@@ -17,38 +18,60 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tic Tac Toe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cka-l7-XEH">
-                    <rect key="frame" x="143" y="100" width="88" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TIC· TAC· TOE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cka-l7-XEH">
+                    <rect key="frame" x="24" y="99" width="326" height="88"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="40"/>
+                    <color key="textColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzw-6M-INj">
-                    <rect key="frame" x="171" y="434" width="33" height="30"/>
-                    <state key="normal" title="Play!"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzw-6M-INj">
+                    <rect key="frame" x="103" y="545" width="168" height="91"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="50"/>
+                    <state key="normal" title="PLAY!">
+                        <color key="titleColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="playPressed:" destination="-1" eventType="touchUpInside" id="PBY-eV-YVo"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgx-Ja-cM3">
+                    <rect key="frame" x="112" y="204" width="50" height="50"/>
+                    <color key="backgroundColor" red="0.27888388197976494" green="0.37281164452511495" blue="0.41447052491956526" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="50"/>
+                    <color key="textColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="×" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4C-Wg-yIE">
+                    <rect key="frame" x="162" y="204" width="50" height="50"/>
+                    <color key="backgroundColor" red="0.27888388200000003" green="0.37281164449999998" blue="0.41447052490000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="50"/>
+                    <color key="textColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muI-vs-SOa">
+                    <rect key="frame" x="212" y="204" width="50" height="50"/>
+                    <color key="backgroundColor" red="0.27888388200000003" green="0.37281164449999998" blue="0.41447052490000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="50"/>
+                    <color key="textColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="3" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="73x-ig-7wW">
-                    <rect key="frame" x="67" y="280" width="241" height="31"/>
+                    <rect key="frame" x="67" y="262" width="241" height="31"/>
+                    <color key="minimumTrackTintColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="maximumTrackTintColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="thumbTintColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <action selector="cellNumSliderValueChanged:" destination="-1" eventType="valueChanged" id="JzR-hT-IPW"/>
                     </connections>
                 </slider>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgx-Ja-cM3">
-                    <rect key="frame" x="182" y="231" width="11" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.23529411764705882" green="0.31372549019607843" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Cka-l7-XEH" firstAttribute="centerX" secondItem="nVe-E0-WMB" secondAttribute="centerX" id="6vG-5k-dsz"/>
                 <constraint firstItem="Cka-l7-XEH" firstAttribute="top" secondItem="nVe-E0-WMB" secondAttribute="top" constant="100" id="ALY-xY-481"/>
             </constraints>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <nil key="simulatedTopBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="289.5" y="272.5"/>
         </view>

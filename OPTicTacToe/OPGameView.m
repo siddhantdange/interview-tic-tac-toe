@@ -8,6 +8,7 @@
 
 #import "OPGameView.h"
 
+#import "OPGameView+UI.h"
 
 @interface OPGameView ()
 
@@ -35,8 +36,8 @@
 #pragma mark - Drawing
 
 - (void)drawValue:(OPGameValue)value atX:(int)x Y:(int)y {
-    OPGamePiece *piece = [[OPGamePiece alloc] initWithValue:value
-                                                 sideLength:(self.sideLength/self.gameCellLength) * 0.75];
+    OPGamePieceView *piece = [[OPGamePieceView alloc] initWithValue:value
+                                                         sideLength:(self.sideLength/self.gameCellLength) * 0.75];
     
     float centerX = x * (self.sideLength/self.gameCellLength) + (self.sideLength/self.gameCellLength)/2.0f;
     float centerY = y * (self.sideLength/self.gameCellLength) + (self.sideLength/self.gameCellLength)/2.0f;
@@ -51,8 +52,8 @@
  */
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 1.0f);
-    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
+    CGContextSetLineWidth(context, 2.0f);
+    CGContextSetStrokeColorWithColor(context, [OPGameView beigeColor].CGColor);
     
     float step = self.sideLength/self.gameCellLength;
     
@@ -87,5 +88,10 @@
         }
     }
 }
+
+
+#pragma mark - UI
+
+
 
 @end

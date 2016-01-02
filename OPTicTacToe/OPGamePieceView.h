@@ -11,7 +11,7 @@
 #import "OPGameConfig.h"
 
 
-@interface OPGamePiece : UIView
+@interface OPGamePieceView : UIView
 
 - (instancetype)initWithValue:(OPGameValue)value sideLength:(float)sideLength;
 

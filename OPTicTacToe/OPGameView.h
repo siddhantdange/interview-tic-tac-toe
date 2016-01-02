@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "OPGamePiece.h"
+#import "OPGamePieceView.h"
 
 
 @protocol OPGameViewDelegate <NSObject>

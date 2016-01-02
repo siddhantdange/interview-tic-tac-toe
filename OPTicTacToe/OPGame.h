@@ -22,6 +22,7 @@
 @required
 - (void)gameWon:(OPGamePlayer)player;
 - (void)gameTie;
+- (void)turnChangedToPlayer:(OPGamePlayer)player;
 
 @end
 

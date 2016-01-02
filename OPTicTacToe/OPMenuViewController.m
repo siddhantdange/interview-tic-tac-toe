@@ -13,16 +13,25 @@
 
 @interface OPMenuViewController () 
 
-@property (weak, nonatomic) IBOutlet UILabel *cellNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cellNumLabel1;
+@property (weak, nonatomic) IBOutlet UILabel *cellNumLabel2;
 @property (weak, nonatomic) IBOutlet UISlider *cellNumSlider;
 
 @end
 
 @implementation OPMenuViewController
 
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationItem.hidesBackButton = YES;
+}
+
+
 - (IBAction)cellNumSliderValueChanged:(id)sender {
-    [self.cellNumLabel setText:[NSString stringWithFormat:@"%d", (int)lroundf(self.cellNumSlider.value)]];
-    [self.cellNumSlider setValue:lroundf(self.cellNumSlider.value) animated:YES];
+    int cellNum = (int)lroundf(self.cellNumSlider.value);
+    [self.cellNumLabel1 setText:[NSString stringWithFormat:@"%d", cellNum]];
+    [self.cellNumLabel2 setText:[NSString stringWithFormat:@"%d", cellNum]];
+    [self.cellNumSlider setValue:cellNum animated:YES];
 }
 
 

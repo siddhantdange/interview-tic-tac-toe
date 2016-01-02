@@ -6,10 +6,10 @@
 //  Copyright © 2015 Siddhant Dange. All rights reserved.
 //
 
-#import "OPGamePiece.h"
+#import "OPGamePieceView.h"
 
 
-@implementation OPGamePiece
+@implementation OPGamePieceView
 
 - (instancetype)initWithValue:(OPGameValue)value sideLength:(float)sideLength {
     self = [super initWithFrame:CGRectMake(0.0f, 0.0f, sideLength, sideLength)];

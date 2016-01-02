@@ -149,6 +149,9 @@
     }
     
     [self.playerManager switchPlayer];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(turnChangedToPlayer:)]) {
+        [self.delegate turnChangedToPlayer:self.playerManager.currentPlayer];
+    }
 }
 
 
