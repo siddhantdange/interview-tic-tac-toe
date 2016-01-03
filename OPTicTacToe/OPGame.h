@@ -31,5 +31,7 @@
 - (instancetype)initWithDelegate:(NSObject<OPGameDelegate> *)delegate config:(OPGameConfig *)config;
 
 @property (nonatomic, strong) OPGameView *view;
+@property (nonatomic, strong) NSMutableArray *board;
+@property (nonatomic, strong) OPGameConfig *config;
 
 @end

@@ -13,9 +13,7 @@
 
 @interface OPGame () <OPGameViewDelegate>
 
-@property (nonatomic, strong) NSMutableArray *board;
 @property (nonatomic, strong) OPPlayerManager *playerManager;
-@property (nonatomic, strong) OPGameConfig *config;
 @property (nonatomic, weak) NSObject<OPGameDelegate> *delegate;
 
 @end
@@ -48,17 +46,17 @@
 
 #pragma mark - Board Check
 
-- (BOOL)checkWinWithNewX:(int)x y:(int)y {
-    return [self checkRowWithX:x Y:y] || [self checkColWithX:x Y:y] || [self checkDiagWithX:x Y:y];
+- (BOOL)checkWinWithNewX:(int)x y:(int)y board:(NSArray *)board {
+    return [self checkRowWithX:x Y:y board:board] || [self checkColWithX:x Y:y board:board] || [self checkDiagWithX:x Y:y board:board];
 }
 
 
-- (BOOL)checkRowWithX:(int)x Y:(int)y {
+- (BOOL)checkRowWithX:(int)x Y:(int)y board:(NSArray *)board {
     
     for (int col = 0; col < self.config.gameCellLength; col++) {
         
         // if not same type of mark
-        if (self.board[y][col] != self.board[y][x]) {
+        if (board[y][col] != board[y][x]) {
             return NO;
         }
     }
@@ -67,12 +65,12 @@
 }
 
 
-- (BOOL)checkColWithX:(int)x Y:(int)y {
+- (BOOL)checkColWithX:(int)x Y:(int)y board:(NSArray *)board {
     
     for (int row = 0; row < self.config.gameCellLength; row++) {
         
         // if not same type of mark
-        if (self.board[row][x] != self.board[y][x]) {
+        if (board[row][x] != board[y][x]) {
             return NO;
         }
     }
@@ -81,7 +79,7 @@
 }
 
 
-- (BOOL)checkDiagWithX:(int)x Y:(int)y {
+- (BOOL)checkDiagWithX:(int)x Y:(int)y board:(NSArray *)board {
     
     // if new mark isn't on diags
     if ((x + y) % 2 == 1) {
@@ -94,12 +92,13 @@
     for (int rowCol = 0; rowCol < self.config.gameCellLength; rowCol++) {
         
         // if not same type of mark
-        if (self.board[rowCol][rowCol] != self.board[y][x]) {
+        if (board[rowCol][rowCol] != board[y][x] || [board[rowCol][rowCol] isEqual:@(OPGameValueOpen)]) {
             diag1 = NO;
         }
         
         // if not same type of mark
-        if (self.board[rowCol][(self.config.gameCellLength - 1) - rowCol] != self.board[y][x]) {
+        if (board[rowCol][(self.config.gameCellLength - 1) - rowCol] != board[y][x] ||
+                [board[rowCol][(self.config.gameCellLength - 1) - rowCol] isEqual:@(OPGameValueOpen)]) {
             diag2 = NO;
         }
     }
@@ -108,7 +107,11 @@
 }
 
 
-- (BOOL)checkTieWithNewX:(int)x Y:(int)y {
+- (BOOL)checkTieWithNewX:(int)x Y:(int)y board:(NSArray *)board {
+    if ([self checkWinWithNewX:x y:y board:board]) {
+        return NO;
+    }
+    
     for (int row = 0; row < self.config.gameCellLength; row++) {
         for (int col = 0; col < self.config.gameCellLength; col++) {
             if ([self.board[row][col] isEqual:@(OPGameValueOpen)]) {
@@ -131,7 +134,7 @@
 - (void)updateGameWithX:(int)x Y:(int)y value:(OPGameValue)value {
     self.board[y][x] = @(value);
     
-    BOOL won = [self checkWinWithNewX:x y:y];
+    BOOL won = [self checkWinWithNewX:x y:y board:self.board];
     if (won) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(gameWon:)]) {
             [self.delegate gameWon:self.playerManager.currentPlayer];
@@ -139,7 +142,7 @@
         return;
     }
     
-    BOOL tie = [self checkTieWithNewX:x Y:y];
+    BOOL tie = [self checkTieWithNewX:x Y:y board:self.board];
     if (tie) {
         
         if (self.delegate && [self.delegate respondsToSelector:@selector(gameTie)]) {
@@ -149,6 +152,8 @@
     }
     
     [self.playerManager switchPlayer];
+    CGPoint best = [self getNextBestMoveForPlayer:self.playerManager.currentPlayer];
+    NSLog(@"next best: row: %d, col: %d", (int)best.x, (int)best.y);
     if (self.delegate && [self.delegate respondsToSelector:@selector(turnChangedToPlayer:)]) {
         [self.delegate turnChangedToPlayer:self.playerManager.currentPlayer];
     }
@@ -184,5 +189,158 @@
     
     return _view;
 }
+
+
+#pragma mark - AI
+
+- (CGPoint)getNextBestMoveForPlayer:(OPGamePlayer)player {
+    NSArray *best = [self findMaxForPlayer:player board:self.board level:1];
+    
+    return CGPointMake(((NSNumber *)best[1]).intValue, ((NSNumber *)best[2]).intValue);
+}
+
+
+- (NSMutableArray *)copyBoard:(NSMutableArray *)board {
+    NSMutableArray *newBoard = [@[] mutableCopy];
+    for (int i = 0; i < board.count; i++) {
+        [newBoard addObject:[[board[i] copy] mutableCopy]];
+    }
+    
+    return newBoard;
+}
+
+
+- (NSArray *)findMaxForPlayer:(OPGamePlayer)player board:(NSMutableArray *)board level:(int)level {
+    if (level >= 2) {
+        return nil;
+    }
+    
+    NSMutableArray *values = [@[] mutableCopy];
+    OPGameValue winningValue = (player == OPGamePlayerOne) ? OPGameValueX : OPGameValueO;
+    
+    for (int row = 0; row < self.config.gameCellLength; row++) {
+        for (int col = 0; col < self.config.gameCellLength; col++) {
+            if ([board[row][col] isEqual:@(OPGameValueOpen)]) {
+                NSMutableArray *newBoard = [self copyBoard:board];
+                newBoard[row][col] = @(winningValue);
+                BOOL win = [self checkWinWithNewX:col y:row board:newBoard];
+                if (win) {
+                    [values addObject:@[@(1.0/level), @(row), @(col)]];
+                    continue;
+                }
+                
+                BOOL tie = [self checkTieWithNewX:col Y:row board:newBoard];
+                if (tie) {
+                    [values addObject:@[@(0), @(row), @(col)]];
+                }
+                
+                // if not win and not tie then evaluate min for new board
+                NSArray *minVal = [self findMinForPlayer:player board:newBoard level:(level)];
+                if (minVal) {
+                    [values addObject:@[minVal[0], @(row), @(col)]];
+                } else { // if board unfinished b/c of depth limit, return draw game
+                    [values addObject:@[@(0), @(row), @(col)]];
+                }
+            }
+        }
+    }
+    
+    float maxVal = -3;
+    int maxRow = 0;
+    int maxCol = 0;
+    for (int i = 0; i < values.count; i++) {
+        NSNumber *val = values[i][0];
+        if (val.intValue > maxVal) {
+            maxVal = val.floatValue;
+            maxRow = ((NSNumber *)values[i][1]).intValue;
+            maxCol = ((NSNumber *)values[i][2]).intValue;
+        }
+    }
+    
+    // if no suitable moves return empty
+    if (maxVal == -3) {
+        return nil;
+    }
+    
+    return @[@(maxVal), @(maxRow), @(maxCol)];
+}
+
+
+- (NSArray *)findMinForPlayer:(OPGamePlayer)player board:(NSMutableArray *)board level:(int)level {
+    if (level >= 2) {
+        return nil;
+    }
+    NSMutableArray *values = [@[] mutableCopy];
+    OPGameValue opponentValue = (player == OPGamePlayerOne) ? OPGameValueO : OPGameValueX;
+    
+    for (int row = 0; row < self.config.gameCellLength; row++) {
+        for (int col = 0; col < self.config.gameCellLength; col++) {
+            if ([board[row][col] isEqual:@(OPGameValueOpen)]) {
+                NSMutableArray *newBoard = [self copyBoard:board];
+                newBoard[row][col] = @(opponentValue);
+                BOOL win = [self checkWinWithNewX:col y:row board:newBoard];
+                if (win) {
+                    [values addObject:@[@(-1.0/level), @(row), @(col)]];
+                    continue;
+                }
+                
+                BOOL tie = [self checkTieWithNewX:col Y:row board:newBoard];
+                if (tie) {
+                    [values addObject:@[@(0), @(row), @(col)]];
+                }
+                
+                // if not win and not tie then evaluate min for new board
+                NSArray *maxVal = [self findMaxForPlayer:player board:newBoard level:(level + 1)];
+                if (maxVal) {
+                    [values addObject:@[maxVal[0], @(row), @(col)]];
+                } else { // if board unfinished b/c of depth limit, return draw game
+                    [values addObject:@[@(0), @(row), @(col)]];
+                }
+            }
+        }
+    }
+    
+    float minVal = 3;
+    int minRow = 0;
+    int minCol = 0;
+    for (int i = 0; i < values.count; i++) {
+        NSNumber *val = values[i][0];
+        if (val.intValue < minVal) {
+            minVal = val.floatValue;
+            minRow = ((NSNumber *)values[i][1]).intValue;
+            minCol = ((NSNumber *)values[i][2]).intValue;
+        }
+    }
+    
+    // if no suitable moves return empty
+    if (minVal == 3) {
+        return nil;
+    }
+    
+    return @[@(minVal), @(minRow), @(minCol)];
+}
+
+
+- (NSString *)stringForBoard:(NSMutableArray *)board {
+    NSMutableString *total = [@"" mutableCopy];
+    
+    for (int row = 0; row < board.count; row++) {
+        for (int col = 0; col < [board[row] count]; col++) {
+            NSString *val = @"x";
+            if ([board[row][col] isEqual:@(OPGameValueO)]) {
+                val = @"o";
+            } else if ([board[row][col] isEqual:@(OPGameValueOpen)]) {
+                val = @"*";
+            }
+            
+            [total appendFormat:@"%@ ", val];
+        }
+        
+        [total appendString:@"\n"];
+    }
+    
+    return total;
+}
+
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		251C08471C38EFC900309919 /* OPGame+AI.m in Sources */ = {isa = PBXBuildFile; fileRef = 251C08461C38EFC900309919 /* OPGame+AI.m */; };
 		25B053BF1C3116850074FC11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B053BE1C3116850074FC11 /* main.m */; };
 		25B053C21C3116850074FC11 /* OPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B053C11C3116850074FC11 /* OPAppDelegate.m */; };
 		25B053C51C3116850074FC11 /* OPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B053C41C3116850074FC11 /* OPMenuViewController.m */; };
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		251C08451C38EFC900309919 /* OPGame+AI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OPGame+AI.h"; sourceTree = "<group>"; };
+		251C08461C38EFC900309919 /* OPGame+AI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OPGame+AI.m"; sourceTree = "<group>"; };
 		25B053BA1C3116850074FC11 /* OPTicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OPTicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B053BE1C3116850074FC11 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		25B053C01C3116850074FC11 /* OPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OPAppDelegate.h; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				25CEEE171C34F78E00D5DF68 /* OPGameConfig.h */,
 				25CEEE181C34F78E00D5DF68 /* OPGameConfig.m */,
 				25CEEE161C34E0F600D5DF68 /* Constants */,
+				251C08451C38EFC900309919 /* OPGame+AI.h */,
+				251C08461C38EFC900309919 /* OPGame+AI.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 				25CEEE011C31C2A700D5DF68 /* OPGame.m in Sources */,
 				25CEEE1F1C36286100D5DF68 /* OPGame+UI.m in Sources */,
 				25CEEE071C32652100D5DF68 /* OPGameView.m in Sources */,
+				251C08471C38EFC900309919 /* OPGame+AI.m in Sources */,
 				25B053BF1C3116850074FC11 /* main.m in Sources */,
 				25CEEE0C1C32657200D5DF68 /* OPGamePieceView.m in Sources */,
 			);
