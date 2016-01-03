@@ -194,7 +194,7 @@
 #pragma mark - AI
 
 - (CGPoint)getNextBestMoveForPlayer:(OPGamePlayer)player {
-    NSArray *best = [self findMaxForPlayer:player board:self.board level:1];
+    NSArray *best = [self findMaxForPlayer:player board:self.board level:1 currentMin:INFINITY];
     
     return CGPointMake(((NSNumber *)best[1]).intValue, ((NSNumber *)best[2]).intValue);
 }
@@ -210,14 +210,18 @@
 }
 
 
-- (NSArray *)findMaxForPlayer:(OPGamePlayer)player board:(NSMutableArray *)board level:(int)level {
-    if (level >= 2) {
+- (NSArray *)findMaxForPlayer:(OPGamePlayer)player board:(NSMutableArray *)board level:(int)level currentMin:(float)currentMin {
+    if (level >= 3) {
         return nil;
     }
     
-    NSMutableArray *values = [@[] mutableCopy];
     OPGameValue winningValue = (player == OPGamePlayerOne) ? OPGameValueX : OPGameValueO;
     
+    float maxVal = -INFINITY;
+    int maxRow = 0;
+    int maxCol = 0;
+    
+    BOOL alphaBetaPrune = NO;
     for (int row = 0; row < self.config.gameCellLength; row++) {
         for (int col = 0; col < self.config.gameCellLength; col++) {
             if ([board[row][col] isEqual:@(OPGameValueOpen)]) {
@@ -225,40 +229,52 @@
                 newBoard[row][col] = @(winningValue);
                 BOOL win = [self checkWinWithNewX:col y:row board:newBoard];
                 if (win) {
-                    [values addObject:@[@(1.0/level), @(row), @(col)]];
+                    if ((1.0/level) > maxVal) {
+                        maxVal = (1.0/level);
+                        maxRow = row;
+                        maxCol = col;
+                    }
                     continue;
                 }
                 
                 BOOL tie = [self checkTieWithNewX:col Y:row board:newBoard];
                 if (tie) {
-                    [values addObject:@[@(0), @(row), @(col)]];
+                    if (0 > maxVal) {
+                        maxVal = 0;
+                        maxRow = row;
+                        maxCol = col;
+                    }
+                    continue;
+                }
+                
+                // alpha beta prune
+                if (maxVal > currentMin) {
+                    alphaBetaPrune = YES;
+                    break;
                 }
                 
                 // if not win and not tie then evaluate min for new board
-                NSArray *minVal = [self findMinForPlayer:player board:newBoard level:(level)];
+                NSArray *minVal = [self findMinForPlayer:player board:newBoard level:(level) currentMax:maxVal];
+                float val = 0.0f;
                 if (minVal) {
-                    [values addObject:@[minVal[0], @(row), @(col)]];
-                } else { // if board unfinished b/c of depth limit, return draw game
-                    [values addObject:@[@(0), @(row), @(col)]];
+                    val = ((NSNumber *)minVal[0]).floatValue;
+                }
+                
+                if (val > maxVal) {
+                    maxVal = val;
+                    maxRow = row;
+                    maxCol = col;
                 }
             }
         }
-    }
-    
-    float maxVal = -3;
-    int maxRow = 0;
-    int maxCol = 0;
-    for (int i = 0; i < values.count; i++) {
-        NSNumber *val = values[i][0];
-        if (val.intValue > maxVal) {
-            maxVal = val.floatValue;
-            maxRow = ((NSNumber *)values[i][1]).intValue;
-            maxCol = ((NSNumber *)values[i][2]).intValue;
+        
+        if (alphaBetaPrune) {
+            break;
         }
     }
     
     // if no suitable moves return empty
-    if (maxVal == -3) {
+    if (maxVal == -INFINITY) {
         return nil;
     }
     
@@ -266,13 +282,17 @@
 }
 
 
-- (NSArray *)findMinForPlayer:(OPGamePlayer)player board:(NSMutableArray *)board level:(int)level {
-    if (level >= 2) {
+- (NSArray *)findMinForPlayer:(OPGamePlayer)player board:(NSMutableArray *)board level:(int)level currentMax:(float)currentMax {
+    if (level >= 3) {
         return nil;
     }
-    NSMutableArray *values = [@[] mutableCopy];
     OPGameValue opponentValue = (player == OPGamePlayerOne) ? OPGameValueO : OPGameValueX;
     
+    float minVal = INFINITY;
+    int minRow = 0;
+    int minCol = 0;
+    
+    BOOL alphaBetaPrune = NO;
     for (int row = 0; row < self.config.gameCellLength; row++) {
         for (int col = 0; col < self.config.gameCellLength; col++) {
             if ([board[row][col] isEqual:@(OPGameValueOpen)]) {
@@ -280,40 +300,52 @@
                 newBoard[row][col] = @(opponentValue);
                 BOOL win = [self checkWinWithNewX:col y:row board:newBoard];
                 if (win) {
-                    [values addObject:@[@(-1.0/level), @(row), @(col)]];
+                    if ((-1.0/level) < minVal) {
+                        minVal = (-1.0/level);
+                        minRow = row;
+                        minCol = col;
+                    }
                     continue;
                 }
                 
                 BOOL tie = [self checkTieWithNewX:col Y:row board:newBoard];
                 if (tie) {
-                    [values addObject:@[@(0), @(row), @(col)]];
+                    if (0 < minVal) {
+                        minVal = 0;
+                        minRow = row;
+                        minCol = col;
+                    }
+                    continue;
+                }
+                
+                // alpha beta pruning
+                if (minVal < currentMax) {
+                    alphaBetaPrune = YES;
+                    break;
                 }
                 
                 // if not win and not tie then evaluate min for new board
-                NSArray *maxVal = [self findMaxForPlayer:player board:newBoard level:(level + 1)];
+                NSArray *maxVal = [self findMaxForPlayer:player board:newBoard level:(level + 1) currentMin:minVal];
+                float val = 0.0f;
                 if (maxVal) {
-                    [values addObject:@[maxVal[0], @(row), @(col)]];
-                } else { // if board unfinished b/c of depth limit, return draw game
-                    [values addObject:@[@(0), @(row), @(col)]];
+                    val = ((NSNumber *)maxVal[0]).floatValue;
+                }
+                
+                if (val < minVal) {
+                    minVal = val;
+                    minRow = row;
+                    minCol = col;
                 }
             }
         }
-    }
-    
-    float minVal = 3;
-    int minRow = 0;
-    int minCol = 0;
-    for (int i = 0; i < values.count; i++) {
-        NSNumber *val = values[i][0];
-        if (val.intValue < minVal) {
-            minVal = val.floatValue;
-            minRow = ((NSNumber *)values[i][1]).intValue;
-            minCol = ((NSNumber *)values[i][2]).intValue;
+        
+        if (alphaBetaPrune) {
+            break;
         }
     }
     
     // if no suitable moves return empty
-    if (minVal == 3) {
+    if (minVal == INFINITY) {
         return nil;
     }
     
