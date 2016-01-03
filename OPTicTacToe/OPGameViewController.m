@@ -17,6 +17,7 @@
 @interface OPGameViewController () <OPGameDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *playerStateLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *AIActivityIndicatorView;
 @property (nonatomic, strong) OPGame *game;
 @property (nonatomic, strong) OPGameConfig *config;
 
@@ -112,9 +113,15 @@
     switch (player) {
         case OPGamePlayerOne:
             self.playerStateLabel.text = @"PLAYER 1 GO";
+            if (self.config.gameMode == OPGameModeAI) {
+                [self.AIActivityIndicatorView stopAnimating];
+            }
             break;
         case OPGamePlayerTwo:
             self.playerStateLabel.text = @"PLAYER 2 GO";
+            if (self.config.gameMode == OPGameModeAI) {
+                [self.AIActivityIndicatorView startAnimating];
+            }
             break;
         default:
             break;

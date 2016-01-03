@@ -153,11 +153,32 @@
     }
     
     [self.playerManager switchPlayer];
-    CGPoint best = [self getNextBestMoveForPlayer:self.playerManager.currentPlayer difficulty:OPGameAILevelHard];
-    NSLog(@"next best: row: %d, col: %d", (int)best.x, (int)best.y);
+    
+    if (self.config.gameMode == OPGameModeAI && self.playerManager.currentPlayer == OPGamePlayerTwo) {
+        [self handleAIMove];
+    }
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(turnChangedToPlayer:)]) {
         [self.delegate turnChangedToPlayer:self.playerManager.currentPlayer];
     }
+}
+
+
+#pragma mark - GamePlay AI
+
+- (void)handleAIMove {
+    self.view.userInteractionEnabled = NO;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        CGPoint best = [self getNextBestMoveForPlayer:self.playerManager.currentPlayer difficulty:self.config.AILevel];
+        float oldY = best.y;
+        best.y = best.x;
+        best.x = oldY;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self cellTapped:best];
+            self.view.userInteractionEnabled = YES;
+        });
+    });
 }
 
 

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OPGameViewController">
             <connections>
+                <outlet property="AIActivityIndicatorView" destination="jHa-KM-0of" id="J4f-Mx-FXo"/>
                 <outlet property="playerStateLabel" destination="tw1-4O-Fy6" id="8Ex-fX-cf2"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jEB-lh-1DQ"/>
             </connections>
@@ -22,6 +23,9 @@
                     <color key="textColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="jHa-KM-0of">
+                    <rect key="frame" x="286" y="102" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="0.23529411759999999" green="0.31372549020000001" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

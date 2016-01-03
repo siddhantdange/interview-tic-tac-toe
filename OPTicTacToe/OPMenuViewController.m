@@ -35,8 +35,25 @@
 }
 
 
-- (IBAction)playPressed:(id)sender {
-    OPGameConfig *config = [[OPGameConfig alloc] initWithGameCellLength:(int)self.cellNumSlider.value];
+- (IBAction)playPressedAIGameEasy:(id)sender {
+    [self startGameWithGameMode:OPGameModeAI AIDifficulty:OPGameAILevelEasy];
+}
+
+
+- (IBAction)playPressedAIGameHard:(id)sender {
+    [self startGameWithGameMode:OPGameModeAI AIDifficulty:OPGameAILevelHard];
+}
+
+
+- (IBAction)playPressedGameHuman:(id)sender {
+    [self startGameWithGameMode:OPGameModeHuman AIDifficulty:OPGameAILevelNone];
+}
+
+
+- (void)startGameWithGameMode:(OPGameMode)gameMode AIDifficulty:(OPGameAILevel)level {
+    OPGameConfig *config = [[OPGameConfig alloc] initWithGameCellLength:(int)self.cellNumSlider.value
+                                                               gameMode:gameMode
+                                                              gameLevel:level];
     
     OPGameViewController *gameViewController = [[OPGameViewController alloc] initWithNibName:@"OPGameViewController" bundle:[NSBundle mainBundle] gameConfig:config];
     [self.navigationController pushViewController:gameViewController animated:YES];

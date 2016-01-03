@@ -7,11 +7,7 @@
 //
 
 #import "OPGame.h"
-
-typedef NS_ENUM(NSInteger, OPGameAILevel) {
-    OPGameAILevelEasy,
-    OPGameAILevelHard
-};
+#import "OPGameConfig.h"
 
 @interface OPGame (AI)
 

@@ -25,38 +25,56 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzw-6M-INj">
-                    <rect key="frame" x="103" y="545" width="168" height="91"/>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="50"/>
-                    <state key="normal" title="PLAY!">
-                        <color key="titleColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="103" y="511" width="168" height="91"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                    <state key="normal" title="GO!">
+                        <color key="titleColor" red="0.94901960780000005" green="0.56078431370000004" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="playPressed:" destination="-1" eventType="touchUpInside" id="PBY-eV-YVo"/>
+                        <action selector="playPressedGameHuman:" destination="-1" eventType="touchUpInside" id="o1y-cf-y6f"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BP5-BT-ocO">
+                    <rect key="frame" x="35" y="209" width="37" height="33"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                    <color key="textColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3M1-cQ-51e">
+                    <rect key="frame" x="306" y="209" width="37" height="33"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                    <color key="textColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 PLAYER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvD-al-WMY">
+                    <rect key="frame" x="61" y="473" width="251" height="75"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="35"/>
+                    <color key="textColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgx-Ja-cM3">
-                    <rect key="frame" x="112" y="204" width="50" height="50"/>
+                    <rect key="frame" x="111" y="153" width="50" height="50"/>
                     <color key="backgroundColor" red="0.27888388197976494" green="0.37281164452511495" blue="0.41447052491956526" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="50"/>
                     <color key="textColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="×" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4C-Wg-yIE">
-                    <rect key="frame" x="162" y="204" width="50" height="50"/>
+                    <rect key="frame" x="161" y="153" width="50" height="50"/>
                     <color key="backgroundColor" red="0.27888388200000003" green="0.37281164449999998" blue="0.41447052490000003" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="50"/>
                     <color key="textColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muI-vs-SOa">
-                    <rect key="frame" x="212" y="204" width="50" height="50"/>
+                    <rect key="frame" x="211" y="153" width="50" height="50"/>
                     <color key="backgroundColor" red="0.27888388200000003" green="0.37281164449999998" blue="0.41447052490000003" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="50"/>
                     <color key="textColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="3" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="73x-ig-7wW">
-                    <rect key="frame" x="67" y="262" width="241" height="31"/>
+                    <rect key="frame" x="66" y="211" width="241" height="31"/>
                     <color key="minimumTrackTintColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="maximumTrackTintColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="thumbTintColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -64,6 +82,32 @@
                         <action selector="cellNumSliderValueChanged:" destination="-1" eventType="valueChanged" id="JzR-hT-IPW"/>
                     </connections>
                 </slider>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4m3-Y4-40o">
+                    <rect key="frame" x="47" y="359" width="100" height="66"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                    <state key="normal" title="EASY">
+                        <color key="titleColor" red="0.94901960780000005" green="0.56078431370000004" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="playPressedAIGameEasy:" destination="-1" eventType="touchUpInside" id="Mly-qR-zsI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mww-G7-HiY">
+                    <rect key="frame" x="225" y="359" width="100" height="66"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                    <state key="normal" title="HARD">
+                        <color key="titleColor" red="0.94901960780000005" green="0.56078431370000004" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="playPressedAIGameHard:" destination="-1" eventType="touchUpInside" id="2a9-fX-Res"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 PLAYER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kqv-TS-eAa">
+                    <rect key="frame" x="58" y="308" width="251" height="75"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="35"/>
+                    <color key="textColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.31372549019607843" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
