@@ -75,9 +75,9 @@
                 </label>
                 <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="3" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="73x-ig-7wW">
                     <rect key="frame" x="66" y="211" width="241" height="31"/>
-                    <color key="minimumTrackTintColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="maximumTrackTintColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="thumbTintColor" red="0.90980392160000001" green="0.83921568629999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="minimumTrackTintColor" red="0.94901960780000005" green="0.56078431370000004" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="maximumTrackTintColor" red="0.94901960780000005" green="0.56078431370000004" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="thumbTintColor" red="0.94901960780000005" green="0.56078431370000004" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <action selector="cellNumSliderValueChanged:" destination="-1" eventType="valueChanged" id="JzR-hT-IPW"/>
                     </connections>
