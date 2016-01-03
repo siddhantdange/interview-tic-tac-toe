@@ -14,6 +14,7 @@
 #import "OPGame+UI.h"
 #import "OPPlayerConstants.h"
 
+
 @interface OPGameViewController () <OPGameDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *playerStateLabel;
@@ -94,7 +95,6 @@
 
 
 - (void)gameTie {
-    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Tie!"
                                                                    message:@"Both Players Have Tied!"
                                                             preferredStyle:UIAlertControllerStyleAlert];

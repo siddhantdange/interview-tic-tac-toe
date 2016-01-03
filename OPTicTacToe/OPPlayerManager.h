@@ -10,6 +10,7 @@
 
 #import "OPPlayerConstants.h"
 
+
 @interface OPPlayerManager : NSObject
 
 @property (nonatomic, assign) OPGamePlayer currentPlayer;

@@ -11,6 +11,7 @@
 #import "OPGameViewController.h"
 #import "OPGameConfig.h"
 
+
 @interface OPMenuViewController () 
 
 @property (weak, nonatomic) IBOutlet UILabel *cellNumLabel1;
@@ -21,11 +22,16 @@
 
 @implementation OPMenuViewController
 
+
+#pragma mark - Lifecycle
+
 - (void)viewDidAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;
     self.navigationItem.hidesBackButton = YES;
 }
 
+
+#pragma mark - Events
 
 - (IBAction)cellNumSliderValueChanged:(id)sender {
     int cellNum = (int)lroundf(self.cellNumSlider.value);

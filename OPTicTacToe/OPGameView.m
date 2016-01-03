@@ -10,6 +10,7 @@
 
 #import "OPGame+UI.h"
 
+
 @interface OPGameView ()
 
 @property (nonatomic, weak) NSObject<OPGameViewDelegate> *delegate;
@@ -88,10 +89,5 @@
         }
     }
 }
-
-
-#pragma mark - UI
-
-
 
 @end

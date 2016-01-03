@@ -10,6 +10,7 @@
 
 #import "OPGameConfig.h"
 
+
 @interface OPGame ()
 
 - (BOOL)checkWinWithNewX:(int)x y:(int)y board:(NSArray *)board;
@@ -39,7 +40,7 @@
 
 
 - (NSArray *)findMaxForPlayer:(OPGamePlayer)player board:(NSMutableArray *)board level:(int)level maxLevel:(int)maxLevel currentMin:(float)currentMin {
-    if (level >= 3) {
+    if (level >= maxLevel) {
         return nil;
     }
     
@@ -111,9 +112,11 @@
 
 
 - (NSArray *)findMinForPlayer:(OPGamePlayer)player board:(NSMutableArray *)board level:(int)level maxLevel:(int)maxLevel currentMax:(float)currentMax {
-    if (level >= 3) {
+    
+    if (level >= maxLevel) {
         return nil;
     }
+    
     OPGameValue opponentValue = (player == OPGamePlayerOne) ? OPGameValueO : OPGameValueX;
     
     float minVal = INFINITY;

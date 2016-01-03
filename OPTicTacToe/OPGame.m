@@ -8,9 +8,10 @@
 
 #import "OPGame.h"
 
-#import "OPGameView.h"
-#import "OPGameConfig.h"
 #import "OPGame+AI.h"
+#import "OPGameConfig.h"
+#import "OPGameView.h"
+
 
 @interface OPGame () <OPGameViewDelegate>
 
