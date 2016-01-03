@@ -8,6 +8,13 @@
 
 #import "OPGame.h"
 
+typedef NS_ENUM(NSInteger, OPGameAILevel) {
+    OPGameAILevelEasy,
+    OPGameAILevelHard
+};
+
 @interface OPGame (AI)
+
+- (CGPoint)getNextBestMoveForPlayer:(OPGamePlayer)player difficulty:(OPGameAILevel)difficulty;
 
 @end
